@@ -1,0 +1,90 @@
+﻿@model tx_repo_demo.Models.EditDocumentViewModel
+@using TXTextControl.Web.MVC
+
+@{
+    ViewData["Title"] = $"Edit - {Model.Title} (v{Model.Version})";
+    var base64Content = Convert.ToBase64String(Model.Content);
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <div>
+            <h2>@Model.Title</h2>
+            <p class="text-muted">
+                <span class="badge bg-secondary">Version @Model.Version</span>
+                @if (Model.IsCurrentVersion)
+                {
+                    <span class="badge bg-success">Current</span>
+                }
+                else
+                {
+                    <span class="badge bg-warning">Older Version</span>
+                }
+                | <strong>@Model.FileName</strong> | @Model.FileSize bytes
+                | Created by <strong>@Model.CreatedBy</strong> on @Model.CreatedAtUtc.ToLocalTime().ToString("MM/dd/yyyy HH:mm")
+            </p>
+            @if (!string.IsNullOrEmpty(Model.Comment))
+            {
+                <p class="fst-italic text-muted">@Model.Comment</p>
+            }
+        </div>
+        <div>
+            <a asp-controller="Home" asp-action="Index" class="btn btn-secondary">
+                <i class="bi bi-arrow-left"></i> Back to Documents
+            </a>
+        </div>
+    </div>
+
+    <div class="mb-4 editor-shell">
+        @Html.TXTextControl().TextControl(settings => {
+            settings.UserNames = new string[] { Model.CreatedBy };
+        }).LoadText(Model.Content, TXTextControl.Web.BinaryStreamType.InternalFormat).Render()
+    </div>
+
+    <div class="mt-3">
+        <button type="button" onclick="saveDocument()" class="btn btn-primary">
+            <i class="bi bi-save"></i> Save Changes
+        </button>
+    </div>
+</div>
+
+<!-- Save Modal -->
+<div class="modal fade" id="saveModal" tabindex="-1" aria-labelledby="saveModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="saveModalLabel">Save Document</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <p>You are about to save a new version of <strong>@Model.Title</strong>.</p>
+                <div class="mb-3">
+                    <label for="saveComment" class="form-label">Version Comment <span class="text-muted">(Optional)</span></label>
+                    <textarea class="form-control" id="saveComment" rows="3" placeholder="Describe the changes made in this version..."></textarea>
+                </div>
+                <div class="alert alert-info mb-0">
+                    <i class="bi bi-info-circle"></i> A new version will be created in the repository.
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-primary" id="confirmSaveButton" onclick="confirmSave()">
+                    <i class="bi bi-save"></i> Save Version
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        window.editConfig = {
+            documentId: '@Model.DocumentId',
+            title: '@Html.Raw(Model.Title)',
+            author: '@Model.CreatedBy',
+            saveUrl: '@Url.Action("SaveDocument", "Edit")',
+            editUrl: '@Url.Action("Index", "Edit", new { id = Model.DocumentId })'
+        };
+    </script>
+    <script src="~/js/edit.js" asp-append-version="true"></script>
+}

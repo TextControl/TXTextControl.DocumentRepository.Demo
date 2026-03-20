@@ -1,0 +1,27 @@
+[
+  {
+    "DocumentId": "159d16e0-f302-4c9d-ad3a-ccf2f22364c9",
+    "Title": "Hello World Document",
+    "Subject": "Demo Document",
+    "CreatedBy": "John Doe",
+    "Tags": [],
+    "CurrentVersion": 8,
+    "Status": "archived",
+    "CreatedAtUtc": "2026-03-19T18:26:52.585709Z",
+    "UpdatedAtUtc": "2026-03-20T15:44:38.4476882Z"
+  },
+  {
+    "DocumentId": "4dcb004d-f067-4ee5-ba71-779e7eb5017c",
+    "Title": "My contract",
+    "Subject": "Agreement A1",
+    "CreatedBy": "Anonymous",
+    "Tags": [
+      "contract",
+      "legal"
+    ],
+    "CurrentVersion": 2,
+    "Status": "active",
+    "CreatedAtUtc": "2026-03-20T15:43:22.0054655Z",
+    "UpdatedAtUtc": "2026-03-20T15:43:30.9138533Z"
+  }
+]

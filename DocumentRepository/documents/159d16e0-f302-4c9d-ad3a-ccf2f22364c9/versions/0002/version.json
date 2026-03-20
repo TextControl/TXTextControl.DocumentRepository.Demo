@@ -1,0 +1,14 @@
+{
+  "DocumentId": "00000000-0000-0000-0000-000000000000",
+  "Version": 2,
+  "FileName": "HelloWorld.tx",
+  "StoredFileName": "content.tx",
+  "MimeType": "application/vnd.textcontrol",
+  "FileSize": 1146,
+  "HashSha256": "4FD74B4DFCCBD299396B3BD06D640440893411A5C865164A5EF9A6117CC3199D",
+  "CreatedBy": "John Doe",
+  "CreatedAtUtc": "2026-03-19T19:06:50.5701704Z",
+  "Comment": "hjkhj",
+  "RestoredFromVersion": null,
+  "IsContentUnchanged": false
+}

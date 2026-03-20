@@ -1,0 +1,14 @@
+{
+  "DocumentId": "00000000-0000-0000-0000-000000000000",
+  "Version": 1,
+  "FileName": "HelloWorld.tx",
+  "StoredFileName": "content.tx",
+  "MimeType": "application/vnd.textcontrol",
+  "FileSize": 1136,
+  "HashSha256": "141BF90E71D083234B47AAFE2F64C91050F0DC5E9C7AF5C298D33F0624993C3C",
+  "CreatedBy": "John Doe",
+  "CreatedAtUtc": "2026-03-19T18:26:52.585709Z",
+  "Comment": "New document created from HomeController",
+  "RestoredFromVersion": null,
+  "IsContentUnchanged": false
+}

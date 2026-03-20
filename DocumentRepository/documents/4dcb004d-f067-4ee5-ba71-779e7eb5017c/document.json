@@ -1,0 +1,14 @@
+{
+  "DocumentId": "4dcb004d-f067-4ee5-ba71-779e7eb5017c",
+  "Title": "My contract",
+  "Subject": "Agreement A1",
+  "CreatedBy": "Anonymous",
+  "CreatedAtUtc": "2026-03-20T15:43:22.0054655Z",
+  "UpdatedAtUtc": "2026-03-20T15:43:30.9138533Z",
+  "CurrentVersion": 2,
+  "Status": "active",
+  "Tags": [
+    "contract",
+    "legal"
+  ]
+}
